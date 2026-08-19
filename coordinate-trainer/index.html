@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Scrabble Coordinate Trainer</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <main class="container">
+    <h1>Scrabble Coordinate Trainer</h1>
+
+    <div class="controls">
+      <div class="prompt">Find: <span id="target">—</span></div>
+
+      <div class="session-controls">
+        <label for="timeLimit">Time:</label>
+        <select id="timeLimit" aria-label="Time limit">
+          <option value="15">15s</option>
+          <option value="30" selected>30s</option>
+          <option value="60">60s</option>
+          <option value="120">120s</option>
+        </select>
+        <button id="startSessionBtn">Start</button>
+        <button id="stopSessionBtn" disabled>Stop</button>
+        <div class="timer">Time left: <span id="timeLeft">—</span></div>
+      </div>
+
+      <div class="input-area">
+        <input id="coordInput" placeholder="Type coordinate (e.g. H8)" aria-label="Coordinate input" />
+        <button id="submitBtn">Submit</button>
+      </div>
+
+      <div class="buttons">
+        <button id="nextBtn">Next</button>
+        <button id="resetBtn">Reset Stats</button>
+        <button id="exportBtn">Export CSV</button>
+        <label class="import-label">
+          Import CSV
+          <input id="importFile" type="file" accept=".csv" />
+        </label>
+      </div>
+    </div>
+
+    <div class="stats">
+      <div>Total: <span id="total">0</span></div>
+      <div>Correct: <span id="correct">0</span></div>
+      <div>Accuracy: <span id="accuracy">0%</span></div>
+      <div>Avg time: <span id="avgTime">0 ms</span></div>
+    </div>
+
+    <div class="board-wrapper">
+      <div id="board" class="board"></div>
+    </div>
+
+    <footer class="notes">
+      Click the correct square, or type the coordinate and press Enter. Columns A–O, rows 1–15.
+    </footer>
+  </main>
+
+  <script src="trainer.js"></script>
+</body>
+</html>
